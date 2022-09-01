@@ -22,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/file-import', [AttendanceController::class, 'fileImport']);
 
+Route::get('/get-attendance', [AttendanceController::class, 'get_attendance']);
+

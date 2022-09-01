@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\AttendanceImport;
+use App\Models\Attendance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
@@ -41,7 +42,7 @@ class AttendanceController extends Controller
         return response()->json([
 
             'status'=>200,
-            'message'=>'Upload successfully ',
+            'message'=>'Upload successfully',
     
         ])->setStatusCode(200);
 
@@ -62,11 +63,19 @@ class AttendanceController extends Controller
     }
 
 
+    public function get_attendance() 
+    {
+    
+
+        $attendance = Attendance::get();
+
+        return response()->json([
+            'status'=> 200,
+            'attendance'=>$attendance,
+        ]);
 
 
-
-
-
+    }
 
 
 }
