@@ -33,8 +33,6 @@ class AttendanceImport implements ToModel
            'shedule_id' =>$row[1],
            'checkin' => $this->transformDate($row[2]),
            'checkout' =>$this->transformDate($row[3]),
-           'working_hours' =>$row[4],
-           
 
         ]);
     }

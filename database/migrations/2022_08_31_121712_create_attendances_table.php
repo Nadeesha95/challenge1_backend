@@ -19,7 +19,6 @@ return new class extends Migration
             $table->unsignedBigInteger('shedule_id');
             $table->timestamp('checkin')->nullable();
             $table->timestamp('checkout')->nullable();
-            $table->float('working_hours');
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('shedule_id')->references('id')->on('shedules');
             $table->timestamps();
