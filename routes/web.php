@@ -17,6 +17,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-Route::post('file-import', [AttendanceController::class, 'fileImport'])->name('file-import');

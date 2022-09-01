@@ -26,14 +26,31 @@ class AttendanceImport implements ToModel
 
     public function model(array $row)
     {
-        $checkin = $this->transformDate($row[2]);
-        $checout = $this->transformDate($row[3]);
 
-       
+        if($row[2]==null ){
+
+            $checkin = null;
+        
+        }else{
+
+            $checkin = $this->transformDate($row[2]); 
+        }
+
+        if($row[3]==null ){
+
+            $checout = null;
+        
+        }else{
+
+            $checout = $this->transformDate($row[3]); 
+        }
+
+
         $t1 = Carbon::parse($checkin);
         $t2 = Carbon::parse($checout);
         $diff = $t1->diff($t2);
-        $diffInHours   = $diff->h; 
+        
+        $diffInHours  = $diff->h; 
 
     
         return new Attendance([

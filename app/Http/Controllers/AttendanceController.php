@@ -33,7 +33,7 @@ class AttendanceController extends Controller
 
 
 
-    try {
+   
         
 
         Excel::import(new AttendanceImport, $request->file('file')->store('temp'));
@@ -48,13 +48,6 @@ class AttendanceController extends Controller
 
 
 
-    } catch (\Throwable $th) {
-        //throw $th;
-        return response()->json([
-            'status' => 'error',
-            'message' => 'Something went wrong',
-        ])->setStatusCode(561);
-    }
 
 
 
@@ -67,7 +60,7 @@ class AttendanceController extends Controller
     {
     
 
-        $attendance = Attendance::get();
+        $attendance = Attendance::with('from')->get();
 
         return response()->json([
             'status'=> 200,

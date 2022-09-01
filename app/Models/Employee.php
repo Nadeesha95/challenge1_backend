@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     use HasFactory;
+
+
+
+
+
+
+    public function attendance()
+    {
+        return $this->hasMany('App\Models\Attendance');
+    }
+
 }
